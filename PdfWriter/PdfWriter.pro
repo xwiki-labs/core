@@ -15,10 +15,10 @@ include(../Common/base.pri)
 
 DEFINES += PDFWRITER_USE_DYNAMIC_LIBRARY
 
-LIBS += -L$$CORE_BUILDS_LIBRARIES_PATH -lUnicodeConverter -lkernel -lgraphics
+LIBS += -L$$CORE_BUILDS_LIBRARIES_PATH -lUnicodeConverter -lkernel 
 
 DEFINES += CRYPTOPP_DISABLE_ASM
-LIBS += -lCryptoPPLib
+## LIBS += -lCryptoPPLib
 
 DEFINES += NOMINMAX
 

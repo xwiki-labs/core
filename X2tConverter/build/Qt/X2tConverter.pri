@@ -97,7 +97,7 @@ LIBS += -L$$CORE_BUILDS_LIBRARIES_PATH -lRtfFormatLib
 #txt(xml) file
 LIBS += -L$$CORE_BUILDS_LIBRARIES_PATH -lTxtXmlFormatLib
 # pdf writer
-# LIBS += -L$$CORE_BUILDS_LIBRARIES_PATH -lPdfWriter
+LIBS += -L$$CORE_BUILDS_LIBRARIES_PATH -lPdfWriter
 #docxfile2
 LIBS += -L$$CORE_BUILDS_LIBRARIES_PATH -lASCOfficeDocxFile2Lib
 #pptxformat
@@ -108,11 +108,11 @@ LIBS += -L$$CORE_BUILDS_LIBRARIES_PATH -lDocxFormatLib
 build_xp {
     LIBS += -L$$CORE_BUILDS_LIBRARIES_PATH/xp -ldoctrenderer
 } else {
-#    LIBS += -L$$CORE_BUILDS_LIBRARIES_PATH -ldoctrenderer
+    LIBS += -L$$CORE_BUILDS_LIBRARIES_PATH -ldoctrenderer
 }
 #HtmlRenderer
-# LIBS += -L$$CORE_BUILDS_LIBRARIES_PATH -lHtmlRenderer
-# LIBS += -L$$CORE_BUILDS_LIBRARIES_PATH -lPdfReader
+LIBS += -L$$CORE_BUILDS_LIBRARIES_PATH -lHtmlRenderer
+#LIBS += -L$$CORE_BUILDS_LIBRARIES_PATH -lPdfReader
 LIBS += -L$$CORE_BUILDS_LIBRARIES_PATH -lDjVuFile
 LIBS += -L$$CORE_BUILDS_LIBRARIES_PATH -lXpsFile
 #HtmlFile

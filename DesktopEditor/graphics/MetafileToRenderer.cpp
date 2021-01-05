@@ -34,7 +34,7 @@
 #include "./MetafileToRendererCheck.h"
 #include "agg_math.h"
 #include "../fontengine/FontManager.h"
-
+#include <iostream>
 #if !defined(_WIN32) && !defined(_WIN64)
 #include "../common/StringExt.h"
 #endif
@@ -88,11 +88,13 @@ public:
     }
     void SetFont(const std::wstring& sName, const int& nStyle)
     {
+        std::wcout << "In SetFont " << sName << std::endl;
         m_pManager->LoadFontByName(sName, 10, nStyle, 72, 72);
     }
 
     void FillText(const std::wstring& bsText, const double& x, const double& y, const double& w, const double& h)
     {
+        std::wcout << "In FillText" << std::endl;
         int bGID = 0;
         m_pRenderer->get_FontStringGID(&bGID);
 
@@ -662,6 +664,7 @@ namespace NSOnlineOfficeBinToPdf
 			{
 				int _sLen = 2 * (int)ReadUSHORT(current, curindex);
 				std::wstring wsTempString = ReadString16(current, curindex, _sLen);
+                                std::wcout << "FontName " << wsTempString << std::endl;
 				pRenderer->put_FontName(wsTempString);
 				break;
 			}
@@ -683,7 +686,7 @@ namespace NSOnlineOfficeBinToPdf
 
 				double m1 = ReadInt(current, curindex) / 100000.0;
 				double m2 = ReadInt(current, curindex) / 100000.0;
-
+                         std::cout << "Draw text" << std::endl;
                 if (!pPicker)
                     pRenderer->CommandDrawText(wsTempString, m1, m2, 0, 0);
                 else

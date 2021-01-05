@@ -1361,6 +1361,7 @@ namespace NExtractTools
 	_UINT32 doct_bin2pdf(NSDoctRenderer::DoctRendererFormat::FormatFile eFromType, const std::wstring &sFrom, const std::wstring &sTo, const std::wstring &sTemp, bool bPaid, const std::wstring &sThemeDir, InputParams& params)
    {
        _UINT32 nRes = 0;
+       std::cout << "In doct_bin2pdf" << std::endl;
        NSDoctRenderer::DoctRendererFormat::FormatFile eToType = NSDoctRenderer::DoctRendererFormat::FormatFile::PDF;
        std::wstring sTFileDir = NSDirectory::GetFolderPath(sFrom);
        std::wstring sImagesDirectory = sTFileDir + FILE_SEPARATOR_STR + _T("media");
@@ -1368,7 +1369,11 @@ namespace NExtractTools
 	   NSDoctRenderer::CDoctrenderer oDoctRenderer(NULL != params.m_sAllFontsPath ? *params.m_sAllFontsPath : _T(""));
        std::wstring sXml = getDoctXml(eFromType, eToType, sTFileDir, sPdfBinFile, sImagesDirectory, sThemeDir, -1, _T(""), params);
        std::wstring sResult;
+       std::wcout << sXml << std::endl;
+       /*
        bool bRes = oDoctRenderer.Execute(sXml, sResult);
+       std::cout << "Result" << std::endl;
+       std::wcout << sResult << std::endl;
        if (-1 != sResult.find(_T("error")))
        {
            std::wcerr << _T("DoctRenderer:") << sResult << std::endl;
@@ -1376,6 +1381,7 @@ namespace NExtractTools
        }
        else
        {
+       */
            NSFonts::IApplicationFonts* pApplicationFonts = NSFonts::NSApplication::Create();
            initApplicationFonts(pApplicationFonts, params);
           
@@ -1395,7 +1401,7 @@ namespace NExtractTools
 		   int nReg = (bPaid == false) ? 0 : 1;
            nRes = (S_OK == pdfWriter.OnlineWordToPdfFromBinary(sPdfBinFile, sTo)) ? nRes : AVS_FILEUTILS_ERROR_CONVERT;
            RELEASEOBJECT(pApplicationFonts);
-       }
+       // }
        //удаляем sPdfBinFile, потому что он не в Temp
        if (NSFile::CFileBinary::Exists(sPdfBinFile))
            NSFile::CFileBinary::Remove(sPdfBinFile);

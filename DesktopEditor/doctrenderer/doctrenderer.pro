@@ -38,10 +38,10 @@ SOURCES += \
     doctrenderer.cpp \
     docbuilder.cpp
 
-SOURCES += \
-    ../../Common/OfficeFileFormatChecker2.cpp \
-    ../../Common/3dParty/pole/pole.cpp \
-    ../../Common/DocxFormat/Source/Base/unicode_util.cpp
+#SOURCES += \
+#    ../../Common/OfficeFileFormatChecker2.cpp \
+#    ../../Common/3dParty/pole/pole.cpp \
+#    ../../Common/DocxFormat/Source/Base/unicode_util.cpp
 
 HEADERS += doctrenderer.h \
     docbuilder.h \

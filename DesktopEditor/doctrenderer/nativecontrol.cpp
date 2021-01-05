@@ -525,8 +525,8 @@ v8::Handle<v8::ObjectTemplate> CreateNativeControlTemplateBuilder(v8::Isolate* i
 
 void CV8Worker::Initialize()
 {
-    if (NULL == m_pInitializer)
-        m_pInitializer = new CV8Initializer();
+   // if (NULL == m_pInitializer)
+   //     m_pInitializer = new CV8Initializer();
 }
 
 void CV8Worker::Dispose()
@@ -540,7 +540,7 @@ CV8Initializer* CV8Worker::getInitializer()
 {
     if (NULL == m_pInitializer)
     {
-        m_pInitializer = new CV8Initializer();
+    //    m_pInitializer = new CV8Initializer();
     }
 
     return CV8Worker::m_pInitializer;
